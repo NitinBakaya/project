@@ -22,3 +22,34 @@ func main() {
 		message:     "Hello, meet me at bar",
 	})
 }
+
+type house struct {
+	kitchen   string
+	namePlate int
+	furniture wooden
+}
+type wooden struct {
+	sofa string
+	dinningTable string
+	chairs string
+}
+
+myHouse := house{}
+myHouse.furniture.sofa = "DreamHut"
+============================
+myCar := struct{
+	model string
+	body string
+}{
+	model: "BMW"
+	body: "Metallic"
+}
+============
+type animal struct{
+	dog string
+	sheep string
+	horse struct{
+		shoes string
+		name string
+	}
+}
