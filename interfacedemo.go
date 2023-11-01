@@ -2,6 +2,19 @@ package main
 
 import "fmt"
 
+func getTheName(e employee) string {
+	c, ok := e.(contractor)
+	if ok {
+		return c.name
+	}
+	f, ok := e.(fullTime)
+	if ok {
+		return f.name
+	}
+	return ""
+
+}
+
 type employee interface {
 	getName() string
 	getSalary() int
@@ -32,6 +45,7 @@ func (f fullTime) getSalary() int {
 	return f.salary
 }
 func test(e employee) {
+	fmt.Println(getTheName(e))
 	fmt.Println(e.getName(), e.getSalary())
 	fmt.Println("***********************************************")
 }
