@@ -1,18 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func getTheName(e employee) string {
-	c, ok := e.(contractor)
-	if ok {
-		return c.name
+	// c, ok := e.(contractor)
+	// if ok {
+	// 	return c.name
+	// }
+	// f, ok := e.(fullTime)
+	// if ok {
+	// 	return f.name
+	// }
+	// return ""
+	// OR using switch case
+	switch v := e.(type) {
+	case contractor:
+		return v.name
+	case fullTime:
+		return v.name
+	default:
+		return ""
 	}
-	f, ok := e.(fullTime)
-	if ok {
-		return f.name
-	}
-	return ""
-
 }
 
 type employee interface {
